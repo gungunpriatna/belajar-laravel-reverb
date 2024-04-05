@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Jobs\SendMessage;
 use App\Models\Message;
-use http\Client\Curl\User;
+use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -35,7 +35,7 @@ class HomeController extends Controller
         return view('home', compact('user'));
     }
 
-    public function message(): JsonResponse
+    public function messages(): JsonResponse
     {
         $messages = Message::with('user')
             ->get()
